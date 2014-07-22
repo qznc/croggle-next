@@ -12,7 +12,7 @@ allprojects {
     apply plugin: "eclipse"
     apply plugin: "idea"
 
-    version = '1.0'
+    version = '1.2'
     ext {
         appName = 'Croggle'
         gdxVersion = '1.2.0'
@@ -60,11 +60,16 @@ project(":android") {
 project(":core") {
     apply plugin: "java"
 
-
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
     }
+}
+
+import de.croggle.gradle.TexturePackerTask
+task texturepacker(type: TexturePackerTask) {
+    inputDir = file('textures')
+    outputDir = file("android/assets/textures")
 }
 
 tasks.eclipse.doLast {
