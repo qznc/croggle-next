@@ -1,0 +1,118 @@
+{
+	"de.croggle" : {
+		"levels" : [
+			{
+			"type" : "term edit" ,
+			"description" : "Test für drag and drop" ,
+			"design" : "" ,
+			"animation" : [
+			],
+			"abort simulation after" : 111 ,
+			"hints" : [ "hints/0105"
+			],
+			"data" : {
+				"initial constellation" : {
+					"families" : [
+						{
+							"type" : "colored alligator" ,
+							"movable" : true ,
+							"removable" : true ,
+							"color" : 13 ,
+							"recolorable" : false ,
+							"children" : [
+
+									{
+									"type" : "egg" ,
+									"movable" : true ,
+									"removable" : false ,
+									"color" : -1 ,
+									"recolorable" : true
+									},
+									{
+									"type" : "egg" ,
+									"movable" : true ,
+									"removable" : false ,
+									"color" : -1 ,
+									"recolorable" : true
+									}
+							]
+						},
+						{
+							"type" : "colored alligator" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : 21 ,
+							"recolorable" : false ,
+							"children" : [
+								{
+								"type" : "egg" ,
+								"movable" : false ,
+								"removable" : false ,
+								"color" : -1 ,
+								"recolorable" : true
+								},
+								{
+								"type" : "egg" ,
+								"movable" : false ,
+								"removable" : false ,
+								"color" : -1 ,
+								"recolorable" : true
+								}
+							]
+						},
+						{
+							"type" : "egg" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : -1 ,
+							"recolorable" : true
+						}				
+					
+					]
+				},
+				"objective" : {
+					"families" : [
+						{
+						"type" : "egg" ,
+						"movable" : false ,
+						"removable" : false ,
+						"color" : 8 ,
+						"recolorable" : true
+						},
+						{
+						"type" : "egg" ,
+						"movable" : false ,
+						"removable" : false ,
+						"color" : 8 ,
+						"recolorable" : true
+						},
+						{
+						"type" : "egg" ,
+						"movable" : false ,
+						"removable" : false ,
+						"color" : 8 ,
+						"recolorable" : true
+						},
+						{
+						"type" : "egg" ,
+						"movable" : false ,
+						"removable" : false ,
+						"color" : 8 ,
+						"recolorable" : true
+						}
+						
+					]
+				},
+
+				"user colors" : [
+					14, 0, 2, 8, 3, 29
+				],
+				"blocked colors" : [
+				]
+				
+			}
+			}
+		
+		]
+	}
+}

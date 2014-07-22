@@ -1,0 +1,16 @@
+{
+	"de.croggle" : {
+		"packages" : [
+			{
+				"_comment" : "Erstes Paket. Beinhaltet alle wichtigen Tutorials zum Erlernen der Spielprinzipien." ,
+				"name" : "Erstes Paket" ,
+				"description" : "Levelpaket zum Erlernen von Croggle." ,
+				"banner" : "" ,
+				"design" : "design/egypt.png" ,
+				"animation" : "" ,
+				"dependencies" : [
+				]
+			}
+		]
+	}
+}

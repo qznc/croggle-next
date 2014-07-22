@@ -1,0 +1,87 @@
+{
+	"de.croggle" : {
+		"levels" : [
+			{
+			"type" : "color edit" ,
+			"description" : "" ,
+			"design" : "" ,
+			"animation" : [
+			],
+			"abort simulation after" : 10 ,
+			"hints" : [ "hints/0008"
+			],
+			"data" : {
+				"initial constellation" : {
+					"families" : [
+						{
+							"type" : "colored alligator" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : -1 ,
+							"recolorable" : true ,
+							"children" : [
+								{
+								"type" : "egg" ,
+								"movable" : false ,
+								"removable" : false ,
+								"color" : -1 ,
+								"recolorable" : true
+								},
+								{
+								"type" : "egg" ,
+								"movable" : false ,
+								"removable" : false ,
+								"color" : -1 ,
+								"recolorable" : true
+								}
+							]
+						},
+						{
+							"type" : "colored alligator" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : -1 ,
+							"recolorable" : true ,
+							"children" : [
+								{
+								"type" : "egg" ,
+								"movable" : false ,
+								"removable" : false ,
+								"color" : -1 ,
+								"recolorable" : true
+								}
+							]
+						},
+						{
+						"type" : "egg" ,
+						"movable" : false ,
+						"removable" : false ,
+						"color" : 27 ,
+						"recolorable" : true
+						}
+						
+					]
+				},
+				"objective" : {
+					"families" : [
+						{
+						"type" : "egg" ,
+						"movable" : false ,
+						"removable" : false ,
+						"color" : 27 ,
+						"recolorable" : true
+						}
+					
+					]
+				},
+
+				"user colors" : [
+					10, 13, 0, 14, 16, 12
+				],
+				"blocked colors" : [
+				]
+			}				
+			}
+		]
+	}
+}

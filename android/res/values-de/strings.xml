@@ -1,0 +1,98 @@
+<resources>
+
+    <string name="app_name">Croggle</string>
+    <string name="app_credits">
+        Croggle\n
+        \n
+        erschaffen von \n
+		Lukas Böhm, Tobias Hornberger, Jonas Mehlhaus, \n
+		Iris Mehrbrodt, Vincent Schüßler, Lena Winter\n
+		\n
+		Nach einer Idee von Bret Victor\n
+		http://worrydream.com</string>
+	<string name="ingame_menu_continue">Fortsetzen</string>
+	<string name="ingame_menu_reset">Rücksetzen</string>
+	<string name="ingame_menu_main_menu">Hauptmenü</string>
+	<string name="ingame_menu_settings">Einstellungen</string>
+	<string name="ingame_menu_level_overview">Levelübersicht</string>
+	<string name="ingame_menu_achievements">Erfolge</string>
+    <string name="achievement_minutes_played">Minuten gespielt</string>
+    <string name="achievement_hours_played">Stunden gespielt</string>
+    <string name="achievement_time_final">Beeindruckend, wie lange du dieses Spiel gespielt hast</string>
+    <string name="achievement_alligators_placed">Alligatoren platziert</string>
+    <string name="achievement_alligators_placed_final">Wow. Du hast viele Alligatoren platziert</string>
+    <string name="achievement_alligators_placed_per_level">Alligatoren in einem Level platziert</string>
+    <string name="achievement_alligator_placed_per_level_final">Wow. Du hast viele Alligatoren in einem Level platziert</string>
+    <string name="achievement_alligators_eaten">Alligatoren gefressen</string>
+    <string name="achievement_alligators_eaten_final">Wow. Es wurden sehr viele Alligatoren gefressen</string>
+    <string name="achievement_alligators_eaten_per_level">Alligatoren in einem Level gefressen</string>
+    <string name="achievement_hints_used_per_level">Ein Level ohne Hinweis gelöst</string>
+    <string name="achievement_alligators_eaten_per_level_final">Wow. Es wurden sehr viele Alligatoren in einem Level gefressen</string>
+    <string name="achievement_level_completed">Level gelöst</string>
+    <string name="screen_title_achievements">Erfolge</string>
+    <string name="screen_title_set_avatar">Wähle deinen Avatar</string>
+    <string name="screen_title_set_name">Wie heißt du?</string>
+    <string name="warning_max_profiles">Du hast die maximale Menge an Profilen erreicht</string>
+    <string name="settings_title_gameplay">Gameplay</string>
+    <string name="settings_title_zoom">Vergrößerungsknöpfe eingeblendet</string>
+    <string name="settings_title_color_blindness">Farbenblindmodus</string>
+    <string name="settings_title_sound">Ton</string>
+    <string name="settings_title_music">Musik</string>
+    <string name="settings_title_effects">Geräusche</string>
+    <string name="settings_title_profile">Profil</string>
+    <string name="settings_button_edit_profile">Profil bearbeiten</string>
+    <string name="warning_no_profile_selected">Du musst zuerst ein Profil auswählen!</string>
+    <string name="title_edit_profile">Was möchtest du tun?</string>
+    <string name="edit_profile_button_rename">Umbenennen</string>
+    <string name="edit_profile_button_change_avatar">Avatar ändern</string>
+    <string name="edit_profile_button_delete">Profil löschen</string>
+    <string name="edit_profile_button_nothing">Nichts</string>
+    <string name="edit_profile_delete_confirmation">Bist du sicher, dass du das Profil namens %s löschen möchtest?</string>
+    <string name="statistic_screen_selected_profile">Ausgewähltes Profil : </string>
+    <string name="statistic_screen_no_users">Noch keine nutzbaren Nutzer</string>
+    <string name="statistic_tab_actions">AKTIONEN</string>
+    <string name="statistic_tab_progress">FORTSCHRITT</string>
+    <string name="statistic_tab_game">SPIEL</string>
+    <string name="statistic_label_action_recolorings">Umfärbungen durchgeführt : </string>
+    <string name="statistic_label_action_resets">Resets genutzt : </string>
+    <string name="statistic_label_action_hints">Hinweise genutzt : </string>
+    <string name="statistic_label_progress_time">Zeit gespielt : </string>
+    <string name="statistic_label_progress_packages">Pakete abgeschlossen : </string>
+    <string name="statistic_label_progress_levels">Levels abgeschlossen : </string>
+    <string name="statistic_label_game_alligators_eaten">Alligatoren gefressen : </string>
+    <string name="statistic_label_game_alligators_placed">Alligatoren platziert : </string>
+    <string name="statistic_label_game_eggs_hatched">Eier geschlüpft : </string>
+    <string name="statistic_label_game_eggs_placed">Eier platziert : </string>
+    <string name="title_new_achievement">Du hast eine neue Errungenschaft!</string>
+    <string name="button_ok">Okay</string>
+    <string name="button_yes">Ja</string>
+    <string name="button_no">Nein</string>
+    <string name="multiple_choice_dialog">Bitte wähle genau eine mögliche Antwort aus.</string>
+    <string name="invalid_board_dialog">Bitte achte darauf, dass alle Alligatoren Kinder haben und färbe sie ein.</string>
+    <string name="achievement_dialog_standard">Für dieses Achievement braucht man: \n</string>
+    <string name="achievement_dialog_last">Die allerhöchste Stufe: \n</string>
+    <string name="level_solved">Yeah! Du hast das Level gelöst!</string>
+    <string name="level_failed">Level verloren.</string>
+	<string name="quit_game_prompt">Möchstest du das Spiel wirklich beenden?</string>
+	<string name="alligator_overflow_msg">Deine Alligator Familien werden zu groß. Versuche es nochmal!</string>
+	<string name="warning_name_already_used">Dieser Name ist schon vergeben.</string>
+	<string name="warning_empty_name">Gib einen Namen ein.</string>
+	<string name="tutorial_missing">Could not load tutorial</string>
+    <string name="tutorial_introduction">Klicke auf die Schaltfläche mit der Flagge, um das Levelziel zu sehen.</string>
+    <string name="tutorial_introduction2">Erreiche das Levelziel, um zu gewinnen.</string>
+    <string name="tutorial_introduction3">Berühre das Ei, um es einzufärben.</string>
+    <string name="tutorial_introduction4">Wenn du fertig bist, drücke zweimal auf das Startsymbol.</string>
+    <string name="tutorial_eating1">Der Alligator ist hungrig, also frisst er das Ei, dass er vor sich sieht.</string>
+    <string name="tutorial_eating2">Davon bekommt er aber Bauchschmerzen, legt sich erst einmal eine Weile hin und verschwindet.</string>
+    <string name="tutorial_eating3">Doch wie durch ein Wunder schlüpft aus seinem Ei wieder das Ei, dass er gefressen hat!</string>
+    <string name="tutorial_reminder">Vergiss nicht, dir das Levelziel anzuschauen.</string>
+    <string name="tutorial_dragging">Du kannst Eier und Alligatoren auf das Spielfeld ziehen.</string>
+    <string name="tutorial_eating_family">Der grüne Alligator ist hungrig, also frisst er die rote Familie, die er vor sich sieht.</string>
+    <string name="tutorial_eating_family2">Dadurch bekommt er wieder Bauchschmerzen und verschwindet. Doch aus seinem Ei schlüpft wieder die Familie, die er gefressen hat.</string>
+    <string name="tutorial_multiple_choice">Wie wird das Spielfeld aussehen, nachdem alle Alligatoren gefressen haben? Wähle deine Antwort und drücke auf Start!</string>
+    <string name="tutorial_alpha">Der grüne Alligator hat Hunger, also frisst er die rote Familie, die er vor sich sieht.</string>
+    <string name="tutorial_alpha2">Davon bekommt er Bauchschmerzen und verschwindet. Doch aus seinem Ei schlüpft die Familie, die er gefressen hat.</string>
+    <string name="tutorial_alpha3">Aber wem gehört jetzt das Ei? Einer der Alligatoren nimmt eine andere Farbe an, um zu zeigen, dass das Ei ihm gehört.</string>
+    <string name="tutorial_old_alligator">Das ist ein alter Alligator. Er ist müde und hat keinen Hunger mehr.</string>
+    <string name="tutorial_old_alligator2">Ein alter Alligator bewacht Familien. Ist nur noch eine Familie übrig, kann sie auf sich selbst aufpassen, und der alte Alligator geht in Rente.</string>   
+</resources>

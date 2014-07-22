@@ -1,0 +1,70 @@
+{
+	"de.croggle" : {
+		"levels" : [
+			{
+			"type" : "term edit" ,
+			"description" : "" ,
+			"design" : "" ,
+			"animation" : [
+			],
+			"abort simulation after" : 111 ,
+			"hints" : [ "hints/0010"
+			],
+			"data" : {
+				"initial constellation" : {
+					"families" : [
+						{
+							"type" : "egg" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : 1 ,
+							"recolorable" : false
+						},
+						{
+							"type" : "egg" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : 2 ,
+							"recolorable" : false
+						}
+					]
+				},
+				"objective" : {
+					"families" : [
+						{
+							"type" : "egg" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : 1 ,
+							"recolorable" : true
+						},
+						{
+							"type" : "egg" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : 1 ,
+							"recolorable" : true
+						},
+						{
+							"type" : "egg" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : 2 ,
+							"recolorable" : true
+						}
+					]
+				},
+
+				"user colors" : [
+					5, 4, 9, 13, 14, 16
+				],
+				"blocked colors" : [
+					1, 2
+				],
+				"blocked types" : [
+				]
+			}				
+			}
+		]
+	}
+}

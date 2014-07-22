@@ -1,0 +1,111 @@
+{
+	"de.croggle" : {
+		"levels" : [
+			{
+			"type" : "color edit" ,
+			"description" : "Viertes Tutoriallevel, das das System der Schrittanzahllevel erklärt." ,
+			"design" : "" ,
+			"animation" : [
+			],
+			"abort simulation after" : 5 ,
+			"hints" : [ "hints/0102"
+			],
+			"data" : {
+				"initial constellation" : {
+					"families" : [
+						{
+							"type" : "colored alligator" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : 13 ,
+							"recolorable" : false ,
+							"children" : [
+
+									{
+									"type" : "egg" ,
+									"movable" : false ,
+									"removable" : false ,
+									"color" : -1 ,
+									"recolorable" : true
+									},
+									{
+									"type" : "egg" ,
+									"movable" : false ,
+									"removable" : false ,
+									"color" : -1 ,
+									"recolorable" : true
+									}
+							]
+						},
+						{
+							"type" : "colored alligator" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : 21 ,
+							"recolorable" : false ,
+							"children" : [
+								{
+								"type" : "egg" ,
+								"movable" : false ,
+								"removable" : false ,
+								"color" : -1 ,
+								"recolorable" : true
+								},
+								{
+								"type" : "egg" ,
+								"movable" : false ,
+								"removable" : false ,
+								"color" : -1 ,
+								"recolorable" : true
+								}
+							]
+						},
+						{
+							"type" : "egg" ,
+							"movable" : false ,
+							"removable" : false ,
+							"color" : -1 ,
+							"recolorable" : true
+						}				
+					
+					]
+				},
+				"objective" : {
+					"families" : [
+						{
+						"type" : "egg" ,
+						"movable" : false ,
+						"removable" : false ,
+						"color" : 8 ,
+						"recolorable" : true
+						},
+						{
+						"type" : "egg" ,
+						"movable" : false ,
+						"removable" : false ,
+						"color" : 8 ,
+						"recolorable" : true
+						},
+						{
+						"type" : "egg" ,
+						"movable" : false ,
+						"removable" : false ,
+						"color" : 8 ,
+						"recolorable" : true
+						}
+						
+					]
+				},
+
+				"user colors" : [
+					14, 0, 2, 8, 3, 29
+				],
+				"blocked colors" : [
+				]
+				
+			}
+			}
+		
+		]
+	}
+}
