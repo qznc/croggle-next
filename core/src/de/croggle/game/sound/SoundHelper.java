@@ -47,7 +47,12 @@ public class SoundHelper {
 	 * @return the music
 	 */
 	public Music getMusic(String name) {
-		return music.get(name);
+		Music m = music.get(name);
+		if (m == null) {
+			throw new IllegalArgumentException("No music with title \"" + name
+					+ "\"");
+		}
+		return m;
 	}
 
 	/**
