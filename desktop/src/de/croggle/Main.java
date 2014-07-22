@@ -21,8 +21,9 @@ public class Main {
 		LocalizationBackend locBack = new DesktopLocalizationBackend();
 		LocalizationHelper.setBackend(locBack);
 		DesktopApplicationConfiguration config = new DesktopApplicationConfiguration();
-		config.addIcon("croggle/res/drawable-xhdpi/ic_launcher.png",
-				FileType.Internal);
+		config.addIcon(
+				((DesktopBackendHelper) backendHelper).getResourceDirPath()
+						+ "drawable-xhdpi/ic_launcher.png", FileType.Internal);
 		config.resizable = false;
 		config.title = "Croggle";
 		config.width = 1024;

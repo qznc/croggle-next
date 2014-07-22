@@ -19,7 +19,7 @@ public class DesktopBackendHelper extends BackendHelper {
 	}
 
 	public static String getResourceDirPath() {
-		return "./croggle/res/";
+		return "../android/res/";
 	}
 
 	@Override
@@ -44,6 +44,6 @@ public class DesktopBackendHelper extends BackendHelper {
 
 	@Override
 	protected String assetDirPath() {
-		return "./croggle/assets/";
+		return "./";
 	}
 }
