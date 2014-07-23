@@ -61,4 +61,7 @@ build/
 
 ## OS Specific
 .DS_Store
-desktop/.temp/
+.temp/
+persistenceDB.db
+android/.config
+desktop/.config

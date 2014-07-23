@@ -19,7 +19,7 @@ public class DesktopBackendHelper extends BackendHelper {
 	}
 
 	public static String getResourceDirPath() {
-		return "../android/res/";
+		return "res/";
 	}
 
 	@Override
@@ -44,6 +44,6 @@ public class DesktopBackendHelper extends BackendHelper {
 
 	@Override
 	protected String assetDirPath() {
-		return "../android/assets/";
+		return "assets/";
 	}
 }
