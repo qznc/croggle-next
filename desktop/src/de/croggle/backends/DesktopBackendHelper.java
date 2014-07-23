@@ -44,6 +44,6 @@ public class DesktopBackendHelper extends BackendHelper {
 
 	@Override
 	protected String assetDirPath() {
-		return "./";
+		return "../android/assets/";
 	}
 }

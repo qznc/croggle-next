@@ -31,11 +31,11 @@ public class SoundHelper {
 		AssetManager manager = AssetManager.getInstance();
 		FileHandle folder = Gdx.files.internal(pathMusic);
 		for (FileHandle entry : folder.list()) {
-			manager.load(pathMusic + "/" + entry.name(), Music.class);
+			manager.load(entry.path(), Music.class);
 		}
 		folder = Gdx.files.internal(pathEffects);
 		for (FileHandle entry : folder.list()) {
-			manager.load(pathEffects + "/" + entry.name(), Sound.class);
+			manager.load(entry.path(), Sound.class);
 		}
 	}
 
@@ -81,13 +81,13 @@ public class SoundHelper {
 			manager.finishLoading();
 			FileHandle folder = Gdx.files.internal(pathMusic);
 			for (FileHandle entry : folder.list()) {
-				instance.music.put(entry.name(), manager.get(pathMusic + "/"
-						+ entry.name(), Music.class));
+				instance.music.put(entry.name(),
+						manager.get(entry.path(), Music.class));
 			}
 			folder = Gdx.files.internal(pathEffects);
 			for (FileHandle entry : folder.list()) {
-				instance.effects.put(entry.name(), manager.get(pathEffects
-						+ "/" + entry.name(), Sound.class));
+				instance.effects.put(entry.name(),
+						manager.get(entry.path(), Sound.class));
 			}
 		}
 		return instance;
