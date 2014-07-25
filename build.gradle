@@ -66,12 +66,6 @@ project(":core") {
     }
 }
 
-import de.croggle.gradle.TexturePackerTask
-task texturepacker(type: TexturePackerTask) {
-    inputDir = file('textures')
-    outputDir = file("android/assets/textures")
-}
-
 tasks.eclipse.doLast {
     delete ".project"
 }

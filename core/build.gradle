@@ -9,3 +9,18 @@ sourceSets.main.java.srcDirs = [ "src/" ]
 eclipse.project {
     name = appName + "-core"
 }
+
+task copyUnpackedTextures(type: Copy) {
+    from 'textures'
+    into '../android/assets/textures'
+    include "*.*"
+}
+
+import de.croggle.gradle.TexturePackerTask
+task runTexturePacker(type: TexturePackerTask) {
+    inputDir = file('textures')
+    outputDir = file("../android/assets/textures")
+}
+
+build.dependsOn copyUnpackedTextures
+build.dependsOn runTexturePacker
