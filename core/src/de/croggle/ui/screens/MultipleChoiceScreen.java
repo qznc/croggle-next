@@ -170,11 +170,14 @@ public class MultipleChoiceScreen extends AbstractScreen implements
 		// dummy table for extended scrolling
 		answerTable.add(new Table()).width(100).left();
 
+		CheckBox.CheckBoxStyle checkBoxStyle = helper.getCheckBoxStyle();
 		for (int i = 0; i < level.getAnswers().length; i++) {
 			Board answer = level.getAnswers()[i];
 			Table boardTable = new Table();
 			Table pageTable = new Table();
-			checkboxes[i] = new CheckBox("", helper.getCheckBoxStyle());
+			// TODO actually, we want EMPTY labels, but those break the
+			// CheckBoxRendering
+			checkboxes[i] = new CheckBox(" ", checkBoxStyle);
 			boardActor = new BoardActor(answer, config);
 			boardActor.setColorBlindEnabled(game.getSettingController()
 					.getCurrentSetting().isColorblindEnabled());
