@@ -21,6 +21,25 @@ import de.croggle.backends.sqlite.DatabaseHelper;
  * a certain functionality is currently unavailable.
  */
 public class AndroidBackendHelper extends BackendHelper {
+
+	private final Runnable acquirer = new Runnable() {
+		@Override
+		public void run() {
+			AndroidApplication app = (AndroidApplication) Gdx.app;
+			Window win = app.getWindow();
+			win.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		}
+	};
+
+	private final Runnable releaser = new Runnable() {
+		@Override
+		public void run() {
+			AndroidApplication app = (AndroidApplication) Gdx.app;
+			Window win = app.getWindow();
+			win.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		}
+	};
+
 	public AndroidBackendHelper() {
 	}
 
@@ -30,17 +49,13 @@ public class AndroidBackendHelper extends BackendHelper {
 
 	@Override
 	protected boolean wakelockAcquire() {
-		AndroidApplication app = (AndroidApplication) Gdx.app;
-		Window win = app.getWindow();
-		win.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		Gdx.app.postRunnable(acquirer);
 		return true;
 	}
 
 	@Override
 	protected boolean wakelockRelease() {
-		AndroidApplication app = (AndroidApplication) Gdx.app;
-		Window win = app.getWindow();
-		win.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		Gdx.app.postRunnable(releaser);
 		return true;
 	}
 
