@@ -18,7 +18,7 @@ task copyUnpackedTextures(type: Copy) {
 
 import de.croggle.gradle.TexturePackerTask
 task runTexturePacker(type: TexturePackerTask) {
-    inputDir = file('textures')
+    inputDir = file('textures/packages')
     outputDir = file("../android/assets/textures")
 }
 

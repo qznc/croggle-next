@@ -5,6 +5,7 @@ import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.incremental.IncrementalTaskInputs
+import com.badlogic.gdx.tools.texturepacker.TexturePacker
 
 class TexturePackerTask extends DefaultTask {
     @InputDirectory
@@ -16,6 +17,8 @@ class TexturePackerTask extends DefaultTask {
     @TaskAction
     void execute(IncrementalTaskInputs inputs) {
         println inputs.incremental ? "CHANGED inputs considered out of date" : "ALL inputs considered out of date"
+        TexturePacker.main([inputDir, outputDir] as String[])
+        
         inputs.outOfDate { change ->
             println "out of date: ${change.file.name}"
         }

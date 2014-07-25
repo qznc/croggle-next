@@ -1,12 +1,12 @@
 repositories {
-		mavenCentral()
-		mavenLocal()
+	mavenCentral()
+	mavenLocal()
 }
 
 ext {
-		gdxVersion = '1.2.0'
+	gdxVersion = '1.2.0'
 }
 
 dependencies {
-    runtime "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+	compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
 }
