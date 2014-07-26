@@ -4,7 +4,6 @@ import static de.croggle.backends.BackendHelper.getAssetDirPath;
 import static de.croggle.data.LocalizationHelper._;
 
 import java.util.List;
-import java.util.Map;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -34,9 +33,7 @@ import de.croggle.game.MultipleChoiceGameController;
 import de.croggle.game.Tutorial;
 import de.croggle.game.TutorialHelper;
 import de.croggle.game.board.Board;
-import de.croggle.game.board.BoardObject;
 import de.croggle.game.board.IllegalBoardException;
-import de.croggle.game.board.operations.CreateWidthMap;
 import de.croggle.game.level.LevelPackage;
 import de.croggle.game.level.LevelPackagesController;
 import de.croggle.game.level.MultipleChoiceLevel;
@@ -173,7 +170,6 @@ public class MultipleChoiceScreen extends AbstractScreen implements
 		CheckBox.CheckBoxStyle checkBoxStyle = helper.getCheckBoxStyle();
 		for (int i = 0; i < level.getAnswers().length; i++) {
 			Board answer = level.getAnswers()[i];
-			Table boardTable = new Table();
 			Table pageTable = new Table();
 			// TODO actually, we want EMPTY labels, but those break the
 			// CheckBoxRendering
@@ -184,15 +180,13 @@ public class MultipleChoiceScreen extends AbstractScreen implements
 			game.getSettingController().addSettingChangeListener(boardActor);
 			boardActor.setZoomAndPanEnabled(false);
 
-			boardTable.add(boardActor).expand().fill();
-			pageTable.add(checkboxes[i]).top().center().pad(20, 0, 5, 0);
+			pageTable.add(checkboxes[i]).size(128).pad(20, 0, 5, 0).fill()
+					.top().center();
 			pageTable.row();
-			pageTable.add(boardTable).center().expand().fill();
+			pageTable.add(boardActor).center().expand().fill();
 
-			// calculate width of answer
-			Map<BoardObject, Float> map = CreateWidthMap.create(answer);
-			float width = map.get(answer);
-			width *= config.getUniformObjectWidth();
+			// get width of answer
+			float width = boardActor.getPreferredWidth();
 
 			answerTable.add(pageTable).width(width).minWidth(270).expandY()
 					.fillY().space(30);

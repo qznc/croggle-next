@@ -388,8 +388,8 @@ public class BoardActor extends Group implements SettingChangeListener {
 	}
 
 	/**
-	 * Sets a listener to be called back when a set of animations has finished
-	 * running.
+	 * TODO Sets a listener to be called back when a set of animations has
+	 * finished running.
 	 * 
 	 * @param listener
 	 *            The listener to be called back
@@ -409,6 +409,36 @@ public class BoardActor extends Group implements SettingChangeListener {
 	 */
 	public void setAnimationSpeed(float speed) {
 		boardAnimator.setAnimationSpeed(speed);
+	}
+
+	/**
+	 * Retrieves the width of the board that is represented by this actor from
+	 * the BoardActor's {@link ActorLayout}'s
+	 * {@link ActorLayout#getLayoutStatistics() statistics} and multiplies it by
+	 * the current zoom level of the actor.
+	 * 
+	 * @return the width that would be needed to show the whole alligator
+	 *         constellation at once
+	 */
+	public float getPreferredWidth() {
+		return layout.getLayoutStatistics().getWidthMap()
+				.get(layout.getBoard())
+				* getZoom();
+	}
+
+	/**
+	 * Retrieves the height of the board that is represented by this actor from
+	 * the BoardActor's {@link ActorLayout}'s
+	 * {@link ActorLayout#getLayoutStatistics() statistics} and multiplies it by
+	 * the current zoom level of the actor.
+	 * 
+	 * @return the height that would be needed to show the whole alligator
+	 *         constellation at once
+	 */
+	public float getPreferredHeight() {
+		return layout.getLayoutStatistics().getHeightMap()
+				.get(layout.getBoard())
+				* getZoom();
 	}
 
 	@Override
