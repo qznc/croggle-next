@@ -1,7 +1,15 @@
 apply plugin: "java"
 
 sourceCompatibility = 1.6
-sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets {
+		main {
+				java.srcDirs = [ "src/" ]
+		}
+		
+    test {
+        java.srcDir file('test/')
+    }
+}
 
 project.ext.mainClassName = "de.croggle.Main"
 project.ext.androidDir = new File("../android");
@@ -28,6 +36,20 @@ task dist(type: Jar) {
     manifest {
         attributes 'Main-Class': project.mainClassName
     }
+}
+
+test {
+	classpath = sourceSets.test.runtimeClasspath
+	workingDir = project.androidDir
+  // show standard out and standard error of the test JVM(s) on the console
+  testLogging.showStandardStreams = true
+
+  // listen to standard out and standard error of the test JVM(s)
+  onOutput { descriptor, event ->
+     logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+  }
+  exclude 'de/croggle/test/**'
+  exclude 'com/badlogic/gdx/**'
 }
 
 dist.dependsOn classes
