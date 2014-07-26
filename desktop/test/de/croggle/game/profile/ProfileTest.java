@@ -1,8 +1,16 @@
 package de.croggle.game.profile;
 
 import junit.framework.TestCase;
+import de.croggle.test.TestHelper;
 
 public class ProfileTest extends TestCase {
+
+	@Override
+	public void setUp() {
+		// necessary, since Settings check for input's multitouch capability to
+		// provide default for zoom buttons
+		TestHelper.setupGdxInput();
+	}
 
 	public void testGetterAndSetter() {
 		Profile profile = new Profile("test01", "test02");
@@ -11,7 +19,7 @@ public class ProfileTest extends TestCase {
 		assertEquals("test01Changed", profile.getName());
 		assertEquals("test02Changed", profile.getPicturePath());
 	}
-	
+
 	public void testEqualsMethod() {
 		Profile profile1 = new Profile("1", "2");
 		Profile profile2 = new Profile("1", "2");
@@ -22,7 +30,7 @@ public class ProfileTest extends TestCase {
 		Profile profile7 = new Profile(null, null);
 		Profile profile8 = new Profile("1", null);
 		Profile profile9 = new Profile(null, "2");
-		
+
 		assertTrue(profile1.equals(profile1));
 		assertTrue(profile1.equals(profile2));
 		assertFalse(profile1.equals(profile3));
@@ -38,9 +46,9 @@ public class ProfileTest extends TestCase {
 		assertFalse(profile8.equals(profile1));
 		assertFalse(profile8.equals(profile7));
 	}
-	
+
 	public void testOverflowException() {
 		ProfileOverflowException poe = new ProfileOverflowException("test");
 	}
-	
+
 }

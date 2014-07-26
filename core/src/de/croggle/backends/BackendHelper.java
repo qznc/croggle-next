@@ -11,8 +11,13 @@ public abstract class BackendHelper {
 
 	private static void initialize(BackendHelper backend) {
 		if (BackendHelper.backend != null) {
-			Gdx.app.log("Backedhelper",
-					"Warning: BackendHelper instantiated more than once");
+			if (Gdx.app == null) {
+				System.out
+						.println("Backedhelper: Warning: BackendHelper instantiated more than once");
+			} else {
+				Gdx.app.log("Backedhelper",
+						"Warning: BackendHelper instantiated more than once");
+			}
 		}
 		BackendHelper.backend = backend;
 	}
