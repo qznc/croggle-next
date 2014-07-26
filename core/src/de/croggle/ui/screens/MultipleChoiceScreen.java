@@ -26,8 +26,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import de.croggle.Croggle;
 import de.croggle.backends.BackendHelper;
 import de.croggle.data.AssetManager;
-import de.croggle.data.persistence.Setting;
-import de.croggle.data.persistence.SettingChangeListener;
 import de.croggle.game.ColorController;
 import de.croggle.game.MultipleChoiceGameController;
 import de.croggle.game.Tutorial;
@@ -46,8 +44,7 @@ import de.croggle.ui.renderer.layout.ActorLayoutConfiguration;
 /**
  * Screen which the player sees when entering Multiple choice levels.
  */
-public class MultipleChoiceScreen extends AbstractScreen implements
-		SettingChangeListener {
+public class MultipleChoiceScreen extends AbstractScreen {
 
 	private final MultipleChoiceGameController gameController;
 	private BoardActor boardActor;
@@ -82,7 +79,6 @@ public class MultipleChoiceScreen extends AbstractScreen implements
 		final LevelPackage pack = packagesController.getLevelPackages().get(
 				packageIndex);
 		setBackground(pack.getDesign());
-		game.getSettingController().addSettingChangeListener(this);
 
 		// load graphics for animation/tutorial
 		if (gameController.getLevel().hasAnimation()) {
@@ -135,7 +131,6 @@ public class MultipleChoiceScreen extends AbstractScreen implements
 	@Override
 	public void render(float delta) {
 		super.render(delta);
-		checkZoom();
 	}
 
 	private void fillTable() {
@@ -171,6 +166,7 @@ public class MultipleChoiceScreen extends AbstractScreen implements
 		for (int i = 0; i < level.getAnswers().length; i++) {
 			Board answer = level.getAnswers()[i];
 			Table pageTable = new Table();
+
 			// TODO actually, we want EMPTY labels, but those break the
 			// CheckBoxRendering
 			checkboxes[i] = new CheckBox(" ", checkBoxStyle);
@@ -179,14 +175,13 @@ public class MultipleChoiceScreen extends AbstractScreen implements
 					.getCurrentSetting().isColorblindEnabled());
 			game.getSettingController().addSettingChangeListener(boardActor);
 			boardActor.setZoomAndPanEnabled(false);
+			// get width of answer
+			float width = boardActor.getPreferredWidth();
 
 			pageTable.add(checkboxes[i]).size(128).pad(20, 0, 5, 0).fill()
 					.top().center();
 			pageTable.row();
 			pageTable.add(boardActor).center().expand().fill();
-
-			// get width of answer
-			float width = boardActor.getPreferredWidth();
 
 			answerTable.add(pageTable).width(width).minWidth(270).expandY()
 					.fillY().space(30);
@@ -209,7 +204,6 @@ public class MultipleChoiceScreen extends AbstractScreen implements
 
 		// TODO remove Simulationbutton and checkboxes and add simulationbutton
 		// on each page.
-		onSettingChange(game.getSettingController().getCurrentSetting());
 
 		// group checkboxes so only one can be checked at a time
 		// (max check amount is one per default)
@@ -283,16 +277,6 @@ public class MultipleChoiceScreen extends AbstractScreen implements
 		tutorial.show(stage);
 	}
 
-	private void checkZoom() {
-		// In a MC Level there is no zoom function
-	}
-
-	@Override
-	public void onSettingChange(Setting setting) {
-		// In a MC Level there is no zoom function
-
-	}
-
 	private class MenuClickListener extends ClickListener {
 		@Override
 		public void clicked(InputEvent event, float x, float y) {
@@ -335,7 +319,6 @@ public class MultipleChoiceScreen extends AbstractScreen implements
 	}
 
 	private class GoalClickListener extends ClickListener {
-
 		@Override
 		public void clicked(InputEvent event, float x, float y) {
 			showGoal();
