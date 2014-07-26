@@ -3,8 +3,6 @@ package de.croggle.game.level;
 import java.util.HashMap;
 import java.util.List;
 
-import com.badlogic.gdx.graphics.g2d.Animation;
-
 import de.croggle.Croggle;
 import de.croggle.game.Color;
 import de.croggle.game.MultipleChoiceGameController;
@@ -16,8 +14,8 @@ import de.croggle.game.board.Board;
  */
 public class MultipleChoiceLevel extends Level {
 
-	private Board[] answers;
-	private int correctAnswer;
+	private final Board[] answers;
+	private final int correctAnswer;
 
 	/**
 	 * Creates a new level with the given parameters.

@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox.CheckBoxStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
@@ -31,12 +32,12 @@ public class StyleHelper {
 	private Skin skin;
 	private TextureAtlas atlas;
 	private FreeTypeFontGenerator generator;
+	private final FreeTypeFontParameter fontParams = new FreeTypeFontParameter();
 
 	private StyleHelper() {
 		AssetManager manager = AssetManager.getInstance();
 		manager.load(getAssetDirPath() + "textures/pack.atlas",
 				TextureAtlas.class);
-
 	}
 
 	/**
@@ -246,7 +247,8 @@ public class StyleHelper {
 	}
 
 	private BitmapFont generateFont(int size) {
-		final BitmapFont font = generator.generateFont(size);
+		fontParams.size = size;
+		final BitmapFont font = generator.generateFont(fontParams);
 		font.getRegion().getTexture()
 				.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		return font;

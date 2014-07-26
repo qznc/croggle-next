@@ -3,8 +3,6 @@ package de.croggle.game.level;
 import java.util.HashMap;
 import java.util.List;
 
-import com.badlogic.gdx.graphics.g2d.Animation;
-
 import de.croggle.Croggle;
 import de.croggle.game.Color;
 import de.croggle.game.EditLevelGameController;
@@ -12,9 +10,8 @@ import de.croggle.game.board.Board;
 
 public abstract class EditLevel extends Level {
 
-	private Color[] userColors;
-	private Color[] blockedColors;
-
+	private final Color[] userColors;
+	private final Color[] blockedColors;
 
 	public EditLevel(int levelIndex, int packageIndex, Board initialBoard,
 			Board goalBoard, List<String> animationPath, Color[] userColors,

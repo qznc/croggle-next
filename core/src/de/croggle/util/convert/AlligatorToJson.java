@@ -195,13 +195,6 @@ public class AlligatorToJson implements BoardObjectVisitor {
 		print(BackendHelper.lineSeparator);
 	}
 
-	private void printTwo(String prefix, int value) {
-		indent();
-		print(prefix);
-		print(value);
-		newLine();
-	}
-
 	private void printTwo(String prefix, boolean value) {
 		indent();
 		print(prefix);

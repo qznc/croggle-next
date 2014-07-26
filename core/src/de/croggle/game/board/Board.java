@@ -15,10 +15,6 @@ public class Board extends Parent implements BoardObject {
 	public Board() {
 	}
 
-	private Board(Board board) {
-		super(board);
-	}
-
 	/**
 	 * Accepts a visitor which is then used for traversing the object's subtree.
 	 * 

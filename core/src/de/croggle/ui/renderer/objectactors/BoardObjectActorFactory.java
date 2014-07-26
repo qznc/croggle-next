@@ -86,6 +86,7 @@ public class BoardObjectActorFactory {
 		return result[0];
 	}
 
+	@SuppressWarnings("unused")
 	public static ColoredAlligatorActor instantiateColoredAlligatorActor(
 			ColoredAlligator alligator, boolean colorBlindEnabled) {
 		if (Croggle.DEBUG && headlessActors) {
@@ -96,6 +97,7 @@ public class BoardObjectActorFactory {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public static AgedAlligatorActor instantiateAgedAlligatorActor(
 			AgedAlligator alligator) {
 		if (Croggle.DEBUG && headlessActors) {
@@ -105,6 +107,7 @@ public class BoardObjectActorFactory {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public static EggActor instantiateEggActor(Egg egg,
 			boolean colorBlindEnabled) {
 		if (Croggle.DEBUG && headlessActors) {

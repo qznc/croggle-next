@@ -2,8 +2,6 @@ package de.croggle.game.level;
 
 import java.util.List;
 
-import com.badlogic.gdx.graphics.g2d.Animation;
-
 import de.croggle.game.Color;
 import de.croggle.game.board.Board;
 

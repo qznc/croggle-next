@@ -14,8 +14,6 @@ import de.croggle.ui.StyleHelper;
  * 
  */
 public class ProfileButton extends Button {
-	private final Profile user;
-
 	/**
 	 * Creates a new profile button displaying information about the given
 	 * profile.
@@ -26,8 +24,6 @@ public class ProfileButton extends Button {
 	public ProfileButton(Profile user) {
 		super(StyleHelper.getInstance().getButtonStyle());
 		StyleHelper helper = StyleHelper.getInstance();
-
-		this.user = user;
 
 		if (user != null) {
 			Label userName = new Label(user.getName(), helper.getLabelStyle(50));

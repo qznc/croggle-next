@@ -32,7 +32,6 @@ import de.croggle.game.board.ColoredBoardObject;
 public abstract class ColoredBoardObjectActor extends BoardObjectActor {
 	private static final String vertexShaderLoc = "shader/ColoredBoardObject.vert";
 	private static final String fragmentShaderLoc = "shader/ColoredBoardObject.frag";
-	private static final String blendFragmentShaderLoc = "shader/ColoredBoardObject-Blendin.frag";
 
 	private TextureRegion mask;
 	private TextureRegion foreground;
