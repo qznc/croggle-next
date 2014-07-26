@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.math.Interpolation;
 
@@ -59,15 +60,16 @@ public class LoadingScreen extends AbstractScreen {
 		percent = Interpolation.linear.apply(percent, AssetManager
 				.getInstance().getProgress(), 0.1f);
 
+		Batch batch = stage.getBatch();
 		// draw loading bar
-		game.batch.begin();
+		batch.begin();
 		float w = getViewportWidth();
 		float h = getViewportHeight();
 		float barWidth = Math.max(bar.getTotalWidth(), w * 8 * percent / 10);
 
-		barEmpty.draw(game.batch, w / 10, h / 6, w * 8 / 10, h / 5);
-		bar.draw(game.batch, w / 10, h / 6, barWidth, h / 5);
-		game.batch.end();
+		barEmpty.draw(batch, w / 10, h / 6, w * 8 / 10, h / 5);
+		bar.draw(batch, w / 10, h / 6, barWidth, h / 5);
+		batch.end();
 
 		// Show the loading screen
 		stage.act();

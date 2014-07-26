@@ -9,7 +9,6 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -26,20 +25,26 @@ public class QuitGameOverlay implements Screen {
 	private ShapeRenderer shapes;
 	private final Color shade;
 	private Screen screenBelow;
-	private Stage stage;
+	private final Stage stage;
 	private final Table table;
-	private final OrthographicCamera camera;
 	private final Croggle game;
-	private InputMultiplexer inputMediator;
+	private final InputMultiplexer inputMediator;
+	private final Viewport vp;
+	private Dialog quitDialog = null;
 
 	public QuitGameOverlay(Croggle game) {
 		this.game = game;
 		this.screenBelow = null;
+
+		vp = new com.badlogic.gdx.utils.viewport.ScalingViewport(
+				Scaling.stretchX, 1024, 600);
+		stage = new Stage(vp);
+		inputMediator = new InputMultiplexer(stage, new BackButtonHandler());
+
 		shade = new Color(0, 0, 0, .5f);
 		table = new Table();
 		table.setFillParent(true);
-		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 1024, 600);
+		stage.addActor(table);
 	}
 
 	public void setOverlayedScreen(Screen s) {
@@ -54,10 +59,10 @@ public class QuitGameOverlay implements Screen {
 
 		Gdx.gl.glEnable(GL20.GL_BLEND);
 		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-		shapes.setProjectionMatrix(camera.combined);
+		shapes.setProjectionMatrix(vp.getCamera().combined);
 		shapes.begin(ShapeType.Filled);
 		shapes.setColor(shade);
-		shapes.rect(0, 0, camera.viewportWidth, camera.viewportHeight);
+		shapes.rect(0, 0, vp.getWorldWidth(), vp.getWorldHeight());
 		shapes.end();
 		stage.act(delta);
 		stage.draw();
@@ -65,64 +70,61 @@ public class QuitGameOverlay implements Screen {
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO this is probably superfluous
-		stage.getViewport().setWorldSize(1024, 600);
-		camera.update();
+		vp.update(width, height);
 	}
 
 	@Override
 	public void show() {
-		Viewport vp = new com.badlogic.gdx.utils.viewport.ScalingViewport(
-				Scaling.stretchX, 1024, 600);
-		vp.setCamera(camera);
-		stage = new Stage(vp, game.batch);
-		stage.addActor(table);
-		shapes = new ShapeRenderer();
-		inputMediator = new InputMultiplexer(stage, new BackButtonHandler());
-		// make the screen as well as the stage an input processor
-		Gdx.input.setInputProcessor(inputMediator);
-		camera.update();
-
-		Dialog quitDialog = new YesNoDialog(_("quit_game_prompt"),
-				new ConfirmInterface() {
-
-					@Override
-					public void yes() {
-						// do whatever needs to be disposed on exit, exit() only
-						// closes the activity
-						Gdx.app.exit();
-					}
-
-					@Override
-					public void no() {
-						hide();
-						if (screenBelow != null) {
-							game.setScreen(screenBelow);
-						} else {
-							throw new IllegalStateException(
-									"Don't know where to return to if no screen is set as OverlayedScreen");
+		/*
+		 * We need to lazy-load the dialog, because its style gets loaded
+		 * asynchronously. Since the QuitGameOverlay is created on startup
+		 * during the loading screen, an AssetManager.finishLoading would
+		 * destroy the desired loading progress effect.
+		 */
+		if (quitDialog == null) {
+			quitDialog = new YesNoDialog(_("quit_game_prompt"),
+					new ConfirmInterface() {
+						@Override
+						public void yes() {
+							// do whatever needs to be disposed on exit, exit()
+							// only
+							// closes the activity
+							Gdx.app.exit();
 						}
-					}
-				});
+
+						@Override
+						public void no() {
+							hide();
+							if (screenBelow != null) {
+								QuitGameOverlay.this.game
+										.setScreen(screenBelow);
+							} else {
+								throw new IllegalStateException(
+										"Don't know where to return to if no screen is set as OverlayedScreen");
+							}
+						}
+					});
+		}
+		// call 'show' every time, since it is hidden/removed after a selection
 		quitDialog.show(stage);
+
+		shapes = new ShapeRenderer();
+		Gdx.input.setInputProcessor(inputMediator);
 	}
 
 	@Override
 	public void hide() {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void pause() {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void resume() {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override

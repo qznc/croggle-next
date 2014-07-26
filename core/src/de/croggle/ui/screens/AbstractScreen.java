@@ -8,9 +8,9 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.loaders.TextureLoader;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -34,7 +34,6 @@ public abstract class AbstractScreen implements Screen {
 	protected final Table table;
 	private Texture background;
 	private String backgroundPath;
-	private final OrthographicCamera camera;
 	private boolean widgetsInitialized = false;
 
 	private final InputMultiplexer inputMediator;
@@ -51,10 +50,7 @@ public abstract class AbstractScreen implements Screen {
 	public AbstractScreen(Croggle game) {
 		this.game = game;
 		Viewport vp = new ScalingViewport(Scaling.fillX, 1024, 600);
-		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 1024, 600);
-		vp.setCamera(camera);
-		stage = new Stage(vp, game.batch);
+		stage = new Stage(vp);
 
 		table = new Table();
 		table.setFillParent(true);
@@ -93,7 +89,7 @@ public abstract class AbstractScreen implements Screen {
 	 * @return the viewport width
 	 */
 	public float getViewportWidth() {
-		return camera.viewportWidth;
+		return 1024;
 	}
 
 	/**
@@ -104,7 +100,7 @@ public abstract class AbstractScreen implements Screen {
 	 * @return the viewport height
 	 */
 	public float getViewportHeight() {
-		return camera.viewportHeight;
+		return 600;
 	}
 
 	/**
@@ -124,22 +120,16 @@ public abstract class AbstractScreen implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-
-		camera.update();
-
-		// tell the SpriteBatch to render in the
-		// coordinate system specified by the camera.
-		game.batch.setProjectionMatrix(camera.combined);
-
+		Batch batch = stage.getBatch();
 		// begin a new batch and draw the background
 		if (backgroundPath != null) {
-			game.batch.begin();
+			batch.begin();
 			background = game.getAssetManager().get(backgroundPath,
 					Texture.class);
 			background.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-			game.batch.draw(background, 0, 0, getViewportWidth(),
+			batch.draw(background, 0, 0, getViewportWidth(),
 					getViewportHeight());
-			game.batch.end();
+			batch.end();
 		}
 
 		stage.act(delta);
@@ -166,8 +156,7 @@ public abstract class AbstractScreen implements Screen {
 	 */
 	@Override
 	public void resize(int width, int height) {
-		stage.getViewport().setWorldSize(1024, 600);
-		camera.update();
+		stage.getViewport().update(width, height);
 	}
 
 	/**

@@ -3,7 +3,6 @@ package de.croggle;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import de.croggle.data.persistence.SettingController;
 import de.croggle.data.persistence.StatisticController;
@@ -62,8 +61,6 @@ public class Croggle extends Game {
 	private ProfileSetAvatarScreen profileSetAvatarScreen;
 	private CreditsScreen creditsScreen;
 	private QuitGameOverlay quitOverlay;
-
-	public SpriteBatch batch;
 
 	/**
 	 * Creates the game using the given context and initializes all controllers
@@ -162,10 +159,6 @@ public class Croggle extends Game {
 		StyleHelper.initialize();
 		SoundHelper.initialize();
 		TutorialHelper.initialize();
-
-		if (!HEADLESS) {
-			batch = new SpriteBatch();
-		}
 
 		// catch android back key
 		Gdx.input.setCatchBackKey(true);
@@ -276,7 +269,6 @@ public class Croggle extends Game {
 	 */
 	@Override
 	public void dispose() {
-		batch.dispose();
 		StyleHelper.getInstance().dispose();
 
 		// release catching of back key (no idea if necessary)
